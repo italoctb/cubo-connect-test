@@ -1,4 +1,5 @@
 import 'package:cubo_connect/views/menu_view.dart';
+import 'package:cubo_connect/views/splash_view.dart';
 import 'package:get/get.dart';
 
 abstract class Routes {
@@ -15,15 +16,15 @@ abstract class AppRoutes {
   static List<GetPage> routes = [
     GetPage(
         name: Routes.splash,
-        page: () => Splash(),
-        transition: Transition.fade,
-        transitionDuration: const Duration(seconds: 1)),
+        page: () => const Splash(),
+        transition: Transition.fadeIn,
+        transitionDuration: const Duration(seconds: 2)),
     GetPage(
         name: Routes.menu,
         page: () => const Menu(),
-        transition: Transition.fade,
+        transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 700)),
-    GetPage(
+    /*GetPage(
         name: Routes.diaDeCompra,
         page: () => DiadeCompra(),
         transition: Transition.fade,
@@ -37,6 +38,6 @@ abstract class AppRoutes {
         name: Routes.criarListadeCompras,
         page: () => CriarListaDeCompras(),
         transition: Transition.native,
-        transitionDuration: const Duration(seconds: 1)),
+        transitionDuration: const Duration(seconds: 1)),*/
   ];
 }

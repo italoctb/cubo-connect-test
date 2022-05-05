@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: "Teste - CuboConnect",
+      defaultTransition: Transition.cupertino,
       initialRoute: "/",
       getPages: AppRoutes.routes,
     );
