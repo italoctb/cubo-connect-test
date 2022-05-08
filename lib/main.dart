@@ -1,4 +1,5 @@
 import 'package:cubo_connect/config/app_routes.dart';
+import 'package:cubo_connect/controllers/app_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppController controller = Get.put(AppController());
     return GetMaterialApp(
       title: "Teste - CuboConnect",
       defaultTransition: Transition.cupertino,

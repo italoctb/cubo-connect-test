@@ -1,3 +1,6 @@
+import 'package:cubo_connect/views/cadastro_view.dart';
+import 'package:cubo_connect/views/criar_lista_de_compra_view.dart';
+import 'package:cubo_connect/views/dia_de_compra_view.dart';
 import 'package:cubo_connect/views/menu_view.dart';
 import 'package:cubo_connect/views/splash_view.dart';
 import 'package:get/get.dart';
@@ -24,20 +27,20 @@ abstract class AppRoutes {
         page: () => const Menu(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 700)),
-    /*GetPage(
+    GetPage(
         name: Routes.diaDeCompra,
-        page: () => DiadeCompra(),
-        transition: Transition.fade,
+        page: () => DiaDeCompra(),
+        transition: Transition.native,
         transitionDuration: const Duration(milliseconds: 700)),
     GetPage(
         name: Routes.cadastro,
         page: () => Cadastro(),
-        transition: Transition.fade,
+        transition: Transition.native,
         transitionDuration: const Duration(milliseconds: 700)),
     GetPage(
         name: Routes.criarListadeCompras,
         page: () => CriarListaDeCompras(),
         transition: Transition.native,
-        transitionDuration: const Duration(seconds: 1)),*/
+        transitionDuration: const Duration(seconds: 1)),
   ];
 }

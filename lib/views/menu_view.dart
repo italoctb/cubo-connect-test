@@ -1,4 +1,7 @@
+import 'package:cubo_connect/config/app_routes.dart';
+import 'package:cubo_connect/views/widgets/botao_padrao_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);
@@ -8,18 +11,22 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Cubo Connect - Dia de Compra"),
+        title: const Text("Cubo Connect - Menu"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            BotaoPadrao(
+              text: "Cadastro",
+              onPressed: () => Get.toNamed(Routes.cadastro),
             ),
-            Text(
-              "Valor",
-              style: Theme.of(context).textTheme.headline4,
+            const SizedBox(
+              height: 20,
+            ),
+            BotaoPadrao(
+              text: "Dia de Compra",
+              onPressed: () => Get.toNamed(Routes.diaDeCompra),
             ),
           ],
         ),
