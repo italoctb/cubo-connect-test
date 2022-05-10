@@ -1,6 +1,5 @@
 import 'package:cubo_connect/models/lista_salva_model.dart';
 import 'package:cubo_connect/models/produto_model.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -80,8 +79,7 @@ class AppController extends GetxController {
     return soma.toString().obs;
   }
 
-  void salvarLista(
-      BuildContext context, RxList<ItemPedido> lista, double valor) {
+  void salvarLista(BuildContext context, List<ItemPedido> lista, double valor) {
     TextEditingController campo = TextEditingController();
     showDialog(
         context: context,
@@ -117,10 +115,10 @@ class AppController extends GetxController {
               Center(
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context);
-                      Navigator.pop(context);
                       listaSalva.add(ListaSalva(
                           nome: campo.text, valor: valor, listaPedidos: lista));
+                      Navigator.pop(context);
+                      Navigator.pop(context);
                     },
                     child: const Text("Salvar lista"),
                     style: ButtonStyle(
@@ -134,5 +132,20 @@ class AppController extends GetxController {
             ],
           );
         });
+  }
+
+  void editarLista(List<ItemPedido> lista) {
+    listaPedidos.clear();
+    for (var item in listaProdutos) {
+      listaPedidos.add(ItemPedido(produto: item, selecionado: false.obs));
+      for (var i in lista) {
+        if (i.produto == item) {
+          listaPedidos.removeLast();
+          listaPedidos
+              .add(ItemPedido(produto: i.produto, selecionado: i.selecionado));
+        }
+      }
+    }
+    Get.toNamed(Routes.criarListadeCompras);
   }
 }
