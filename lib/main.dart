@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppController controller = Get.put(AppController());
+    Get.put(AppController());
     return GetMaterialApp(
       title: "Teste - CuboConnect",
       defaultTransition: Transition.cupertino,

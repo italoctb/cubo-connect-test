@@ -75,21 +75,21 @@ class CriarListaDeCompras extends StatelessWidget {
                 trailing: Obx(() => Text(
                       "R\$" +
                           controller.valorLista(controller.listaPedidos).value,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
                           color: Colors.black87),
                     )),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             BotaoPadrao(
               text: "Salvar lista",
               onPressed: () => controller.salvarLista(
                   context,
-                  controller.listaPedidos,
+                  controller.listaPedidos.toList(),
                   double.parse(
                       controller.valorLista(controller.listaPedidos).value)),
             ),
