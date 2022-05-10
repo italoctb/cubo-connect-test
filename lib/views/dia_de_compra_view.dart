@@ -29,7 +29,7 @@ class DiaDeCompra extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.64,
               child: Obx(() => ListView.builder(
-                  itemCount: controller.listaSalva.length,
+                  itemCount: controller.listasSalvas.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Card(
                       child: ListTile(
@@ -37,17 +37,20 @@ class DiaDeCompra extends StatelessWidget {
                         title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(controller.listaSalva[index].nome ?? "nulo"),
+                              Text(controller.listasSalvas[index].nome ??
+                                  "nulo"),
                             ]),
-                        trailing: Text(
-                          "R\$" + controller.listaSalva[index].valor.toString(),
-                          style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87),
-                        ),
-                        onTap: () => controller.editarLista(
-                            controller.listaSalva[index].listaPedidos),
+                        trailing: Obx(() => Text(
+                              "R\$" +
+                                  controller.listasSalvas[index].valor!.value
+                                      .toString(),
+                              style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black87),
+                            )),
+                        onTap: () => controller
+                            .editarLista(controller.listasSalvas[index]),
                       ),
                     );
                   })),

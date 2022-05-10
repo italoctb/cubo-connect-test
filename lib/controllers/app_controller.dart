@@ -2,17 +2,17 @@ import 'package:cubo_connect/models/lista_salva_model.dart';
 import 'package:cubo_connect/models/produto_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import '../config/app_routes.dart';
 import '../models/item_pedido_model.dart';
 
 class AppController extends GetxController {
   RxList<Produto> listaProdutos = <Produto>[].obs;
   RxList<ItemPedido> listaPedidos = <ItemPedido>[].obs;
-  RxList<ListaSalva> listaSalva = <ListaSalva>[].obs;
+  RxList<ListaSalva> listasSalvas = <ListaSalva>[].obs;
   TextEditingController nomeProdutoController = TextEditingController();
   TextEditingController valorProdutoController = TextEditingController();
-
+  RxString nomeListaEditada = "".obs;
   void salvarItem(BuildContext context) {
     Produto produto = Produto(
         nome: nomeProdutoController.text,
@@ -115,8 +115,10 @@ class AppController extends GetxController {
               Center(
                 child: ElevatedButton(
                     onPressed: () {
-                      listaSalva.add(ListaSalva(
-                          nome: campo.text, valor: valor, listaPedidos: lista));
+                      listasSalvas.add(ListaSalva(
+                          nome: campo.text,
+                          valor: valor.obs,
+                          listaPedidos: lista));
                       Navigator.pop(context);
                       Navigator.pop(context);
                     },
@@ -134,11 +136,12 @@ class AppController extends GetxController {
         });
   }
 
-  void editarLista(List<ItemPedido> lista) {
+  void editarLista(ListaSalva lista) {
+    nomeListaEditada.value = lista.nome!;
     listaPedidos.clear();
     for (var item in listaProdutos) {
       listaPedidos.add(ItemPedido(produto: item, selecionado: false.obs));
-      for (var i in lista) {
+      for (var i in lista.listaPedidos) {
         if (i.produto == item) {
           listaPedidos.removeLast();
           listaPedidos
@@ -146,6 +149,19 @@ class AppController extends GetxController {
         }
       }
     }
-    Get.toNamed(Routes.criarListadeCompras);
+    Get.toNamed(Routes.editarListadeCompras);
+  }
+
+  void salvarListaEditada(BuildContext context) {
+    int index = 0;
+    for (var item in listasSalvas) {
+      if (item.nome != nomeListaEditada.value) {
+        index++;
+      }
+    }
+    listasSalvas[index].listaPedidos = listaPedidos.toList();
+    listasSalvas[index].valor!.value =
+        double.parse(valorLista(listaPedidos).value);
+    Navigator.pop(context);
   }
 }
