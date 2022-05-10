@@ -5,6 +5,8 @@ import 'package:cubo_connect/views/menu_view.dart';
 import 'package:cubo_connect/views/splash_view.dart';
 import 'package:get/get.dart';
 
+import '../views/editar_lista_de_compra_view.dart';
+
 abstract class Routes {
   static const splash = '/';
   static const menu = '/menu';
@@ -13,6 +15,7 @@ abstract class Routes {
   static const cadastro = '/menu/cadastro';
 
   static const criarListadeCompras = '/menu/diaDeCompra/criarListadeCompras';
+  static const editarListadeCompras = '/menu/diaDeCompra/editarListadeCompras';
 }
 
 abstract class AppRoutes {
@@ -40,6 +43,11 @@ abstract class AppRoutes {
     GetPage(
         name: Routes.criarListadeCompras,
         page: () => CriarListaDeCompras(),
+        transition: Transition.native,
+        transitionDuration: const Duration(seconds: 1)),
+    GetPage(
+        name: Routes.editarListadeCompras,
+        page: () => EditarListaDeCompras(),
         transition: Transition.native,
         transitionDuration: const Duration(seconds: 1)),
   ];
