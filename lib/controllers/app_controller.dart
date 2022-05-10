@@ -2,7 +2,6 @@ import 'package:cubo_connect/models/lista_salva_model.dart';
 import 'package:cubo_connect/models/produto_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import '../config/app_routes.dart';
 import '../models/item_pedido_model.dart';
 
@@ -92,7 +91,6 @@ class AppController extends GetxController {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextFormField(
-                      keyboardType: TextInputType.number,
                       controller: campo,
                       decoration: InputDecoration(
                         isDense: true,

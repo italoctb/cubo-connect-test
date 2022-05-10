@@ -1,16 +1,19 @@
-# cubo_connect
+# Cubo Connect
 
 Etapa Teste
 
-## Getting Started
+## Utilidade do aplicativo
 
-This project is a starting point for a Flutter application.
+O aplicativo deverá ser capaz de criar listas de compras com o valor total da lista sendo recalculado conforme os itens selecionados.
 
-A few resources to get you started if this is your first Flutter project:
+Deverá ter funções de Cadastro de Itens e visualização da lista.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Printscreens
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![splash](assets/printSplash.png)
+![print1](assets/print1.png)
+![print2](assets/print2.png)
+![print3](assets/print3.png)
+![print4](assets/print4.png)
+![print5](assets/print5.png)
+![print6](assets/print6.png)
